@@ -4,6 +4,18 @@ from sklearn import linear_model, datasets
 import matplotlib.pyplot as plt
 
 
+class pathway(object):
+	"""docstring for pathway"""
+	'''this is a dictionary to store all of pathways'''
+	'''key is the name '''
+	pathdict={}
+
+	def __init__(self, arg):
+		
+		super(pathway, self).__init__()
+		self.arg = arg
+		
+
 def loadData(numoffeatures):
 	File_y=open('042815_y.txt','r')
 	File_x=open('042815_x.txt','r')
@@ -118,7 +130,7 @@ def loadData(numoffeatures):
 	np_x=np.array(dataset_x)
 	np_y_predict=np.array(dataset_y_predict)
 	np_x_predict=np.array(dataset_x_predict)
-	print np_y.shape,np_x.shape,np_y_predict.shape,np_x_predict.shape
+	#print np_y.shape,np_x.shape,np_y_predict.shape,np_x_predict.shape
 
 	return np_x,np_y,np_x_predict,np_y_predict
 
@@ -138,8 +150,8 @@ def learnandpredict(np_x,np_y,np_x_predict,np_y_predict,numoffeatures):
 			count+=1
 	accuracy=1-float(count)/float(len(np_y_predict))
 	print numoffeatures,accuracy
-	print np_y_predict
-	print predictlist
+	#print np_y_predict
+	#print predictlist
 
 
 	x_min, x_max = np_x[:, 0].min() - .5, np_x[:, 0].max() + .5
